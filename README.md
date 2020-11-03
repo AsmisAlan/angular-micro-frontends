@@ -4,19 +4,23 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Steps to create micro frontend
 
-1. Install the version of angular that supports webpack 5: 
+1. Install the version of angular that supports webpack 5:
 
-Angular 11 will support webpack 
+    Angular 11 will support webpack, but currently the only package that we could use is:
+
+    ``` text
+    @angular/cli@11.0.0-rc.1
+    @angular/core@11.0.0-rc.1
+    ```
 
 1. Create a clean workspace using this command:
 
-`ng new module-federation --createApplication=false`
-
+    `ng new module-federation --createApplication=false`
 1. Set yarn as your package manager
 
-`ng config -g cli.packageManager yarn`
+    `ng config -g cli.packageManager yarn`
 
-Why?
+    Why?
 
 1. Add the webpack resolution version in the `package.json` file.
 
@@ -25,3 +29,5 @@ Why?
     "webpack": "5.0.0"
   },
 ```
+
+1. Custom builder
