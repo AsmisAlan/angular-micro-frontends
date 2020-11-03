@@ -141,7 +141,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/shell",
             "index": "projects/shell/src/index.html",
@@ -156,7 +156,8 @@
             "styles": [
               "projects/shell/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/shell/webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -184,18 +185,22 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "extraWebpackConfig": "projects/shell/webpack.prod.config.js"
             }
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "shell:build"
+            "browserTarget": "shell:build",
+            "extraWebpackConfig": "projects/shell/webpack.config.js",
+            "port": 5200
           },
           "configurations": {
             "production": {
-              "browserTarget": "shell:build:production"
+              "browserTarget": "shell:build:production",
+              "extraWebpackConfig": "projects/shell/webpack.prod.config.js"
             }
           }
         },
@@ -206,7 +211,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "projects/shell/src/test.ts",
             "polyfills": "projects/shell/src/polyfills.ts",
@@ -219,7 +224,8 @@
             "styles": [
               "projects/shell/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/shell/webpack.config.js"
           }
         },
         "lint": {
@@ -261,7 +267,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/pizza-selector",
             "index": "projects/pizza-selector/src/index.html",
@@ -276,7 +282,8 @@
             "styles": [
               "projects/pizza-selector/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/pizza-selector/webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -304,18 +311,22 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "extraWebpackConfig": "projects/pizza-selector/webpack.prod.config.js"
             }
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "pizza-selector:build"
+            "browserTarget": "pizza-selector:build",
+            "extraWebpackConfig": "projects/pizza-selector/webpack.config.js",
+            "port": 5100
           },
           "configurations": {
             "production": {
-              "browserTarget": "pizza-selector:build:production"
+              "browserTarget": "pizza-selector:build:production",
+              "extraWebpackConfig": "projects/pizza-selector/webpack.prod.config.js"
             }
           }
         },
@@ -326,7 +337,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "projects/pizza-selector/src/test.ts",
             "polyfills": "projects/pizza-selector/src/polyfills.ts",
@@ -339,7 +350,8 @@
             "styles": [
               "projects/pizza-selector/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/pizza-selector/webpack.config.js"
           }
         },
         "lint": {
