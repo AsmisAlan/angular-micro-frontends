@@ -11,24 +11,9 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
       },
       plugins: [
         new ModuleFederationPlugin({
-          
-            // For remotes (please adjust)
-            /*
-            name: "demo",
-            library: { type: "var", name: "demo" },
-            filename: "remoteEntry.js",
-            exposes: {
-                './Component': './projects/demo/src/app/app.component.ts',
-            },        
-            */
-           
-            // For hosts (please adjust)
-            /*
             remotes: {
-                'mfe1': "mfe1@http://localhost:3000/remoteEntry.js" 
+                'shell': "shell@http://localhost:5200/remoteEntry.js"
             },
-            */
-
             shared: ["@angular/core", "@angular/common", "@angular/router"]
         })
       ],

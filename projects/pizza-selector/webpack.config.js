@@ -11,21 +11,19 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
       },
       plugins: [
         new ModuleFederationPlugin({
-          
+
             // For remotes (please adjust)
-            /*
             name: "pizza-selector",
             library: { type: "var", name: "pizza-selector" },
             filename: "remoteEntry.js",
             exposes: {
                 './Component': './projects/pizza-selector/src/app/app.component.ts',
-            },        
-            */
-           
+            },
+
             // For hosts (please adjust)
             /*
             remotes: {
-                'mfe1': "mfe1@http://localhost:3000/remoteEntry.js" 
+                'mfe1': "mfe1@http://localhost:3000/remoteEntry.js"
             },
             */
 
