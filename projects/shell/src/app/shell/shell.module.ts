@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule, ModuleWithProviders, Optional, Inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ShellComponent } from './shell.component';
 
@@ -8,16 +8,21 @@ import { ShellComponent } from './shell.component';
             {
                 path: '',
                 component: ShellComponent,
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('./shell-routing.module').then(
+                                (x) => x.ShellRoutingModule
+                            ),
+                    },
+                ],
             },
         ]),
     ],
 })
 export class ShellModule {
-    static forRoot(data: any): ModuleWithProviders<ShellModule> {
-        console.log(data);
-        return {
-            ngModule: ShellModule,
-            providers: [],
-        };
+    constructor(@Optional() @Inject('shell_content') data) {
+        console.log('LOADING Shell configuration', data);
     }
 }

@@ -1,33 +1,25 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
-    module.exports = {
-      output: {
+module.exports = {
+    output: {
         publicPath: "http://localhost:5100/",
         uniqueName: "pizza-selector"
-      },
-      optimization: {
+    },
+    optimization: {
         // Only needed to bypass a temporary bug
         runtimeChunk: false
-      },
-      plugins: [
+    },
+    plugins: [
         new ModuleFederationPlugin({
 
             // For remotes (please adjust)
             name: "pizza-selector",
-            library: { type: "var", name: "pizza-selector" },
             filename: "remoteEntry.js",
             exposes: {
-                './Component': './projects/pizza-selector/src/app/app.component.ts',
+                './PizzaModule': './projects/pizza-selector/src/app/pizza-selector/pizza-selector.module.ts'
             },
-
-            // For hosts (please adjust)
-            /*
-            remotes: {
-                'mfe1': "mfe1@http://localhost:3000/remoteEntry.js"
-            },
-            */
 
             shared: ["@angular/core", "@angular/common", "@angular/router"]
         })
-      ],
-    };
+    ],
+};
